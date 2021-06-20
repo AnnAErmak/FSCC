@@ -16,7 +16,18 @@ const UserList = observer(() => {
         <div>
             <ListGroup>
                 {userList.UserList.map(userList =>
-                    <ListGroup.Item key={userList.id}>{userList.name} </ListGroup.Item>
+                    <ListGroup.Item
+                        style={ {cursor: 'pointer'}}
+                        active = {userList.id === 3}
+                        onClick={() =>{
+                            const u = userList.setSelectedList(userList)
+                            console.log(u)
+                        }}
+                        key={userList.id}
+                    >
+                        {userList.name}
+
+                    </ListGroup.Item>
                 )}
             </ListGroup>
         </div>
@@ -24,9 +35,3 @@ const UserList = observer(() => {
 });
 
 export default UserList;
-
-/*                <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                <ListGroup.Item>Vestibulum at eros</ListGroup.Item>*/
