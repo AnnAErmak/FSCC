@@ -15,17 +15,14 @@ const UserList = observer(() => {
     return (
         <div>
             <ListGroup>
-                {userList.UserList.map(userList =>
+                {userList.UserList.map(uList =>
                     <ListGroup.Item
                         style={ {cursor: 'pointer'}}
-                        active = {userList.id === 3}
-                        onClick={() =>{
-                            const u = userList.setSelectedList(userList)
-                            console.log(u)
-                        }}
-                        key={userList.id}
+                        active = {uList.id === userList.SelectedList.id}
+                         onClick={() => userList.setSelectedList(uList)}
+                        key={uList.id}
                     >
-                        {userList.name}
+                        {uList.name}
 
                     </ListGroup.Item>
                 )}
